@@ -1,10 +1,10 @@
-# 🌍 Impact of Global Conflicts on Fuel Prices & Economic Indicators
+#  Impact of Global Conflicts on Fuel Prices & Economic Indicators
 
 > **Final-Year Data Science Project — Part 2: Machine Learning, Data Mining & Predictive Analytics**
 
 ---
 
-## 📌 Problem Statement
+## Problem Statement
 
 Global armed conflicts are among the most disruptive forces in commodity markets. Building on Part 1's OLTP schema, star-schema Data Warehouse, and OLAP analysis — which quantified that **oil prices are ~18% higher in high-conflict years** — Part 2 extends this descriptive foundation into **predictive modelling**, **unsupervised clustering**, **time-series forecasting**, and **association rule mining**.
 
@@ -12,7 +12,7 @@ Global armed conflicts are among the most disruptive forces in commodity markets
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 | Layer | Technology |
 |---|---|
@@ -27,7 +27,7 @@ Global armed conflicts are among the most disruptive forces in commodity markets
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 opwar_project/
@@ -42,7 +42,7 @@ opwar_project/
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ### 1. Clone the repository
 
@@ -73,13 +73,13 @@ The app will launch locally at `http://127.0.0.1:7860` and print a **public shar
 
 ---
 
-## 🎛️ Gradio UI Features
+##  Gradio UI Features
 
 | Tab | Description |
 |---|---|
-| 🔮 Predict Oil Price | Input 9 conflict/economic parameters → instant prediction with feature analysis chart |
-| 📊 Scenario Comparison | One-click comparison of 4 preset conflict severity scenarios |
-| ℹ️ About | Model details, feature definitions, project structure |
+|  Predict Oil Price | Input 9 conflict/economic parameters → instant prediction with feature analysis chart |
+|  Scenario Comparison | One-click comparison of 4 preset conflict severity scenarios |
+|  About | Model details, feature definitions, project structure |
 
 ### Input Features
 
@@ -97,7 +97,7 @@ The app will launch locally at `http://127.0.0.1:7860` and print a **public shar
 
 ---
 
-## 📊 ML Model Summary
+##  ML Model Summary
 
 | Model | CV R² | CV RMSE | Notes |
 |---|---|---|---|
@@ -108,7 +108,7 @@ The app will launch locally at `http://127.0.0.1:7860` and print a **public shar
 
 ---
 
-## 🔍 Data Mining
+##  Data Mining
 
 Association rule mining (Apriori, min_support=0.15, min_confidence=0.60) revealed:
 
@@ -120,7 +120,7 @@ These patterns extend the OLAP Q2 finding (conflict type vs. oil price) into a m
 
 ---
 
-## 📈 Time-Series Forecast
+##  Time-Series Forecast
 
 Holt-Winters Exponential Smoothing (additive trend + seasonality, period=12) trained on 1970–2022 data:
 
@@ -130,7 +130,7 @@ Holt-Winters Exponential Smoothing (additive trend + seasonality, period=12) tra
 
 ---
 
-## 🗂️ Key Outputs
+##  Key Outputs
 
 | File | Description |
 |---|---|
@@ -142,7 +142,7 @@ Holt-Winters Exponential Smoothing (additive trend + seasonality, period=12) tra
 
 ---
 
-## 🔮 Future Improvements
+##  Future Improvements
 
 1. **Monthly-grain regression** — expand n from 53 to 670 by rebuilding at monthly granularity
 2. **Facebook Prophet** with `conflict_intensity_score` as exogenous regressor
@@ -153,7 +153,7 @@ Holt-Winters Exponential Smoothing (additive trend + seasonality, period=12) tra
 
 ---
 
-## 📚 Dataset Sources
+##  Dataset Sources
 
 | Dataset | Source |
 |---|---|
@@ -165,11 +165,10 @@ Holt-Winters Exponential Smoothing (additive trend + seasonality, period=12) tra
 
 ---
 
-## 👤 Author
+##  Author
 
-**[Your Name]**  
-Final-Year Data Science Project  
-[Your Institution] — [Year]
+**Anugu Laxman Reddy**  
+
 
 ---
 
