@@ -13,7 +13,7 @@
 
 <br/>
 
-> **Final Year Data Science Project** — End-to-end analytics pipeline from raw conflict data to  
+> **Data wareHouse &BI Project** — End-to-end analytics pipeline from raw conflict data to  
 > interactive machine learning dashboard: OLTP → Data Warehouse → OLAP → ML → Gradio UI
 
 <br/>
@@ -417,9 +417,8 @@ The app will open at `http://localhost:7860` in your browser.
 
 <div align="center">
 
-**[Your Full Name]**  
-*B.Sc. / M.Sc. Data Science — [Your University Name]*  
-*Academic Year 2024–2025*
+**[Anugu Laxman Reddy]**  
+*Bsms Data Science — [IISER TVM]*  
 
 [![GitHub](https://img.shields.io/badge/GitHub-@YOUR_USERNAME-181717?style=flat-square&logo=github)](https://github.com/YOUR_USERNAME)
 [![Email](https://img.shields.io/badge/Email-your.email@university.edu-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:your.email@university.edu)
