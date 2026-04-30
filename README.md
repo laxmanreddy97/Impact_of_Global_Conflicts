@@ -24,7 +24,7 @@
 
 ---
 
-## 📌 Table of Contents
+## Table of Contents
 
 - [Problem Statement](#-problem-statement)
 - [Why This Matters](#-why-this-matters)
@@ -42,7 +42,7 @@
 
 ---
 
-## 🎯 Problem Statement
+##  Problem Statement
 
 Global armed conflicts are among the most disruptive forces in commodity markets.  
 This project investigates a central research question:
@@ -55,7 +55,7 @@ The analysis spans **3,000 conflict events from 1950 to 2024** and **675 months 
 
 ---
 
-## 💡 Why This Matters
+##  Why This Matters
 
 | Historical Event | Year | Oil Price Impact |
 |:---|:---:|:---:|
@@ -69,7 +69,7 @@ Governments, hedge funds, and supply-chain teams need tools to **anticipate** th
 
 ---
 
-## 🏗 Project Architecture
+##  Project Architecture
 
 ```
 Raw Data (5 CSVs)
@@ -115,7 +115,7 @@ Raw Data (5 CSVs)
 
 ---
 
-## 📂 Datasets
+##  Datasets
 
 | # | Dataset | File | Rows | Key Columns |
 |:---:|:---|:---|:---:|:---|
@@ -129,7 +129,7 @@ Raw Data (5 CSVs)
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 conflict-fuel-price-analysis/
@@ -219,7 +219,7 @@ The operational database was designed in **SQLite** following Third Normal Form:
 
 ---
 
-## 🤖 Part 2 — Machine Learning & Data Mining
+##  Part 2 — Machine Learning & Data Mining
 
 ### Feature Engineering
 
@@ -261,7 +261,7 @@ at lift > 1.5 — a statistically non-random association confirmed across the da
 
 ---
 
-## 📈 Key Results
+##  Key Results
 
 ### Regression Model Comparison
 
@@ -326,7 +326,7 @@ The final cell of `part2_ml_analysis.ipynb` launches a **6-tab interactive dashb
 
 ---
 
-## 🚀 How to Run the Gradio UI
+##  How to Run the Gradio UI
 
 ### Option A — Run in Google Colab (Recommended)
 
@@ -359,7 +359,7 @@ The app will open at `http://localhost:7860` in your browser.
 
 ---
 
-## 🛠 Technologies Used
+##  Technologies Used
 
 <div align="center">
 
@@ -380,7 +380,7 @@ The app will open at `http://localhost:7860` in your browser.
 
 ---
 
-## 📓 Project Notebooks
+##  Project Notebooks
 
 | Notebook | Description | Open in Colab |
 |:---|:---|:---:|
@@ -390,7 +390,7 @@ The app will open at `http://localhost:7860` in your browser.
 
 ---
 
-## 📊 Sample Outputs
+##  Sample Outputs
 
 <table>
   <tr>
@@ -413,7 +413,7 @@ The app will open at `http://localhost:7860` in your browser.
 
 ---
 
-## 👤 Author
+##  Author
 
 <div align="center">
 
@@ -427,7 +427,7 @@ The app will open at `http://localhost:7860` in your browser.
 
 ---
 
-## 📜 License
+##  License
 
 This project is submitted as academic coursework.  
 Code is released under the [MIT License](LICENSE) for reference and educational purposes.
@@ -436,8 +436,8 @@ Code is released under the [MIT License](LICENSE) for reference and educational 
 
 <div align="center">
 
-**⭐ If you found this project useful, consider starring the repository.**
+** If you found this project useful, consider starring the repository.**
 
-*Final Year Project | Data Warehouse + Machine Learning + Interactive Analytics*
+*Project | Data Warehouse + Machine Learning + Interactive Analytics*
 
 </div>
