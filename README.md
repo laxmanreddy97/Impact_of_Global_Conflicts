@@ -18,7 +18,7 @@
 
 <br/>
 
-[📊 View Notebook](#-project-notebooks) • [🚀 Run the App](#-how-to-run-the-gradio-ui) • [📁 Project Structure](#-project-structure) • [📈 Key Results](#-key-results)
+[ View Notebook](#-project-notebooks) • [ Run the App](#-how-to-run-the-gradio-ui) • [Project Structure](#-project-structure) • [Key Results](#-key-results)
 
 </div>
 
@@ -134,12 +134,12 @@ Raw Data (5 CSVs)
 ```
 conflict-fuel-price-analysis/
 │
-├── 📓 notebooks/
+├──  notebooks/
 │   ├── part1_oltp_dw_olap.ipynb          ← OLTP schema, DW design, 6 OLAP queries
 │   └── part2_ml_analysis.ipynb           ← EDA, ML models, clustering, forecasting,
 │                                            association rules, Gradio UI (last cell)
 │
-├── 📊 data/
+├──  data/
 │   ├── global_conflicts_dataset.csv
 │   ├── fuel_prices_1970_2026.csv
 │   ├── aramco.csv
@@ -147,10 +147,10 @@ conflict-fuel-price-analysis/
 │   ├── WLD_RTFP_country_2023-10-02.csv
 │   └── README.md                         ← Download links for large files
 │
-├── 🖥️ app/
+├──  app/
 │   └── app.py                            ← Standalone Gradio UI (runs outside Colab)
 │
-├── 📈 outputs/
+├──  outputs/
 │   ├── eda_distributions.png
 │   ├── eda_correlation_heatmap.png
 │   ├── eda_boxplots.png
@@ -160,7 +160,7 @@ conflict-fuel-price-analysis/
 │   ├── plot_forecast.png
 │   └── plot_association_rules.png
 │
-├── 📄 docs/
+├──  docs/
 │   └── project_report.pdf                ← Full written report (if applicable)
 │
 ├── .gitignore
@@ -170,7 +170,7 @@ conflict-fuel-price-analysis/
 
 ---
 
-## 🗄 Part 1 — OLTP, Data Warehouse & OLAP
+##  Part 1 — OLTP, Data Warehouse & OLAP
 
 ### OLTP Schema (3NF — 6 Tables)
 
@@ -311,18 +311,18 @@ Holt-Winters Exponential Smoothing fitted on 1970–2022 monthly data:
 
 ---
 
-## 🖥 Gradio Interactive UI
+##  Gradio Interactive UI
 
 The final cell of `part2_ml_analysis.ipynb` launches a **6-tab interactive dashboard**:
 
 | Tab | Feature | Description |
 |:---:|:---|:---|
-| 1 | 🛢️ **Oil Price Predictor** | 11 sliders → ML prediction + gauge + historical context |
-| 2 | 📊 **EDA Explorer** | 6 on-demand charts (heatmap, distributions, boxplots, OLAP visual) |
-| 3 | 🗺️ **Country Clusters** | Choose K → PCA scatter + cluster profile bars + country table |
-| 4 | 📅 **Price Forecaster** | Horizon slider + geopolitical scenario → H-W forecast chart |
-| 5 | 🏆 **Model Dashboard** | All 4 models: R², RMSE, feature importance, prediction vs actual |
-| 6 | ℹ️ **About** | Full project summary, dataset details, key findings |
+| 1 |  **Oil Price Predictor** | 11 sliders → ML prediction + gauge + historical context |
+| 2 |  **EDA Explorer** | 6 on-demand charts (heatmap, distributions, boxplots, OLAP visual) |
+| 3 |  **Country Clusters** | Choose K → PCA scatter + cluster profile bars + country table |
+| 4 |  **Price Forecaster** | Horizon slider + geopolitical scenario → H-W forecast chart |
+| 5 |  **Model Dashboard** | All 4 models: R², RMSE, feature importance, prediction vs actual |
+| 6 |  **About** | Full project summary, dataset details, key findings |
 
 ---
 
