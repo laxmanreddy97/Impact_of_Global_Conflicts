@@ -420,8 +420,8 @@ The app will open at `http://localhost:7860` in your browser.
 **[Anugu Laxman Reddy]**  
 *Bsms Data Science — [IISER TVM]*  
 
-[![GitHub](https://img.shields.io/badge/GitHub-@YOUR_USERNAME-181717?style=flat-square&logo=github)](https://github.com/YOUR_USERNAME)
-[![Email](https://img.shields.io/badge/Email-your.email@university.edu-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:your.email@university.edu)
+[![GitHub](https://img.shields.io/badge/GitHub-@laxmanreddy97-181717?style=flat-square&logo=github)](https://github.com/laxmanreddy97)
+[![Email](https://img.shields.io/badge/Email-your.anugu23@iisertvm.ac.in-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:your.email@university.edu)
 
 </div>
 
