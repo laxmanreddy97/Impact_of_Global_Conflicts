@@ -398,16 +398,16 @@ The app will open at `http://localhost:7860` in your browser.
     <td align="center"><b>Model Comparison</b></td>
   </tr>
   <tr>
-    <td><img src="outputs/eda_correlation_heatmap.png" width="340"/></td>
-    <td><img src="outputs/plot_model_comparison.png" width="340"/></td>
+    <td><img src="outputs/plots/eda_correlation_heatmap.png" width="340"/></td>
+    <td><img src="outputs/plots/plot_model_comparison.png" width="340"/></td>
   </tr>
   <tr>
     <td align="center"><b>Country Clusters (PCA)</b></td>
     <td align="center"><b>24-Month Oil Forecast</b></td>
   </tr>
   <tr>
-    <td><img src="outputs/plot_clustering.png" width="340"/></td>
-    <td><img src="outputs/plot_forecast.png" width="340"/></td>
+    <td><img src="outputs/plots/plot_clustering.png" width="340"/></td>
+    <td><img src="outputs/plots/plot_forecast.png" width="340"/></td>
   </tr>
 </table>
 
