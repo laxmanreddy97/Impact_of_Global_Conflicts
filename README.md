@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1000&color=E05A1A&center=true&vCenter=true&width=700&lines=Impact+of+Global+Conflicts;on+Fuel+Prices+%26+Economics;Data+Warehouse+%26+ML+Insights" alt="typing-svg" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1000&color=E05A1A&center=true&vCenter=true&width=700&lines=Impact+of+Global+Conflicts;on+Fuel+Prices+%26+Economics" alt="Project Title" />
 
 <br/>
 
@@ -13,12 +13,12 @@
 
 <br/>
 
-> **Data wareHouse &BI Project** — End-to-end analytics pipeline from raw conflict data to  
+> **Data Warehouse & BI Project** — End-to-end analytics pipeline from raw conflict data to  
 > interactive machine learning dashboard: OLTP → Data Warehouse → OLAP → ML → Gradio UI
 
 <br/>
 
-[ view Notebook](#-project-notebooks) • [ Gradio UI](#-how-to-run-the-gradio-ui) • [ Project Structure](#-project-structure) • [ Key Results](#-key-results)
+[📓 View Notebook](#-project-notebooks) • [🎨 Gradio UI](#-how-to-run-the-gradio-ui) • [📁 Project Structure](#-project-structure) • [🎯 Key Results](#-key-results)
 
 </div>
 
@@ -26,23 +26,23 @@
 
 ## Table of Contents
 
-- [Problem Statement](#-problem-statement)
-- [Why This Matters](#-why-this-matters)
-- [Project Architecture](#-project-architecture)
-- [Datasets](#-datasets)
-- [Project Structure](#-project-structure)
-- [Part 1 — OLTP, Data Warehouse & OLAP](#-part-1--oltp-data-warehouse--olap)
-- [Part 2 — Machine Learning & Data Mining](#-part-2--machine-learning--data-mining)
-- [Key Results](#-key-results)
-- [Gradio Interactive UI](#-gradio-interactive-ui)
-- [How to Run the Gradio UI](#-how-to-run-the-gradio-ui)
-- [Technologies Used](#-technologies-used)
-- [Project Notebooks](#-project-notebooks)
-- [Author](#-author)
+- [Problem Statement](#problem-statement)
+- [Why This Matters](#why-this-matters)
+- [Project Architecture](#project-architecture)
+- [Datasets](#datasets)
+- [Project Structure](#project-structure)
+- [Part 1 — OLTP, Data Warehouse & OLAP](#part-1--oltp-data-warehouse--olap)
+- [Part 2 — Machine Learning & Data Mining](#part-2--machine-learning--data-mining)
+- [Key Results](#key-results)
+- [Gradio Interactive UI](#gradio-interactive-ui)
+- [How to Run the Gradio UI](#how-to-run-the-gradio-ui)
+- [Technologies Used](#technologies-used)
+- [Project Notebooks](#project-notebooks)
+- [Author](#author)
 
 ---
 
-##  Problem Statement
+## 🔍 Problem Statement
 
 Global armed conflicts are among the most disruptive forces in commodity markets.  
 This project investigates a central research question:
@@ -55,7 +55,7 @@ The analysis spans **3,000 conflict events from 1950 to 2024** and **675 months 
 
 ---
 
-##  Why This Matters
+## 💡 Why This Matters
 
 | Historical Event | Year | Oil Price Impact |
 |:---|:---:|:---:|
@@ -69,7 +69,7 @@ Governments, hedge funds, and supply-chain teams need tools to **anticipate** th
 
 ---
 
-##  Project Architecture
+## 🏗️ Project Architecture
 
 ```
 Raw Data (5 CSVs)
@@ -115,7 +115,7 @@ Raw Data (5 CSVs)
 
 ---
 
-##  Datasets
+## 📊 Datasets
 
 | # | Dataset | File | Rows | Key Columns |
 |:---:|:---|:---|:---:|:---|
@@ -129,7 +129,7 @@ Raw Data (5 CSVs)
 
 ---
 
-##  Project Structure
+## 📁 Project Structure
 
 ```
 conflict-fuel-price-analysis/
@@ -170,7 +170,7 @@ conflict-fuel-price-analysis/
 
 ---
 
-##  Part 1 — OLTP, Data Warehouse & OLAP
+## 📈 Part 1 — OLTP, Data Warehouse & OLAP
 
 ### OLTP Schema (3NF — 6 Tables)
 
@@ -219,7 +219,7 @@ The operational database was designed in **SQLite** following Third Normal Form:
 
 ---
 
-##  Part 2 — Machine Learning & Data Mining
+## 🤖 Part 2 — Machine Learning & Data Mining
 
 ### Feature Engineering
 
@@ -253,7 +253,7 @@ The operational database was designed in **SQLite** following Third Normal Form:
 Applied **Apriori** algorithm (via `mlxtend`) on discretised conflict features:
 
 - **Support** — fraction of conflicts where both features co-occur
-- **Confidence** — P(consequent | antecedent)
+- **Confidence** — P(consequent \| antecedent)
 - **Lift** — strength of association above random chance (Lift > 1 = meaningful)
 
 Key finding: *Long-duration conflicts + UN involvement* co-occur with *High economic loss*  
@@ -261,7 +261,7 @@ at lift > 1.5 — a statistically non-random association confirmed across the da
 
 ---
 
-##  Key Results
+## 🎯 Key Results
 
 ### Regression Model Comparison
 
@@ -311,31 +311,31 @@ Holt-Winters Exponential Smoothing fitted on 1970–2022 monthly data:
 
 ---
 
-##  Gradio Interactive UI
+## 🎨 Gradio Interactive UI
 
 The final cell of `part2_ml_analysis.ipynb` launches a **6-tab interactive dashboard**:
 
 | Tab | Feature | Description |
 |:---:|:---|:---|
-| 1 |  **Oil Price Predictor** | 11 sliders → ML prediction + gauge + historical context |
-| 2 |  **EDA Explorer** | 6 on-demand charts (heatmap, distributions, boxplots, OLAP visual) |
-| 3 |  **Country Clusters** | Choose K → PCA scatter + cluster profile bars + country table |
-| 4 |  **Price Forecaster** | Horizon slider + geopolitical scenario → H-W forecast chart |
-| 5 |  **Model Dashboard** | All 4 models: R², RMSE, feature importance, prediction vs actual |
-| 6 |  **About** | Full project summary, dataset details, key findings |
+| 1 | 📊 **Oil Price Predictor** | 11 sliders → ML prediction + gauge + historical context |
+| 2 | 📈 **EDA Explorer** | 6 on-demand charts (heatmap, distributions, boxplots, OLAP visual) |
+| 3 | 🎯 **Country Clusters** | Choose K → PCA scatter + cluster profile bars + country table |
+| 4 | 🔮 **Price Forecaster** | Horizon slider + geopolitical scenario → H-W forecast chart |
+| 5 | 📉 **Model Dashboard** | All 4 models: R², RMSE, feature importance, prediction vs actual |
+| 6 | ℹ️ **About** | Full project summary, dataset details, key findings |
 
 ---
 
-##  How to Run the Gradio UI
+## ▶️ How to Run the Gradio UI
 
 ### Option A — Run in Google Colab (Recommended)
 
 ```
 1. Open notebooks/part2_ml_analysis.ipynb in Google Colab
 2. Upload all 5 CSV files to /content/ when prompted
-3. Run all cells from top to bottom  (Runtime → Run All)
+3. Run all cells from top to bottom (Runtime → Run All)
 4. The LAST cell installs Gradio and launches the UI automatically
-5. A public link appears:  https://xxxxxxxx.gradio.live
+5. A public link appears: https://xxxxxxxx.gradio.live
 6. Share that link — it works from any browser for 72 hours
 ```
 
@@ -343,8 +343,8 @@ The final cell of `part2_ml_analysis.ipynb` launches a **6-tab interactive dashb
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/conflict-fuel-price-analysis.git
-cd conflict-fuel-price-analysis
+git clone https://github.com/laxmanreddy97/Impact_of_Global_Conflicts.git
+cd Impact_of_Global_Conflicts
 
 # 2. Install dependencies
 pip install -r requirements.txt
@@ -359,7 +359,7 @@ The app will open at `http://localhost:7860` in your browser.
 
 ---
 
-##  Technologies Used
+## 🛠️ Technologies Used
 
 <div align="center">
 
@@ -380,18 +380,16 @@ The app will open at `http://localhost:7860` in your browser.
 
 ---
 
-##  Project Notebooks
+## 📓 Project Notebooks
 
 | Notebook | Description | Open in Colab |
 |:---|:---|:---:|
 | `part1_oltp_dw_olap.ipynb` | OLTP schema, DW design, 6 OLAP queries | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/laxmanreddy97/Impact_of_Global_Conflicts/blob/main/notebooks/part1_oltp_dw_olap.ipynb) |
 | `part2_ml_analysis.ipynb` | Full Part 2 — EDA, ML, Clustering, Forecasting, ARM, Gradio UI | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/laxmanreddy97/Impact_of_Global_Conflicts/blob/main/notebooks/part2_ml_analysis.ipynb) |
 
-> Replace `YOUR_USERNAME` in the Colab badge link with your actual GitHub username.
-
 ---
 
-##  Sample Outputs
+## 📸 Sample Outputs
 
 <table>
   <tr>
@@ -414,12 +412,12 @@ The app will open at `http://localhost:7860` in your browser.
 
 ---
 
-##  Author
+## 👤 Author
 
 <div align="center">
 
-**[Anugu Laxman Reddy]**  
-*Bsms Data Science — [IISER TVM]*  
+**Anugu Laxman Reddy**  
+*B.Sc in Data Science — IISER Thiruvananthapuram*  
 
 [![GitHub](https://img.shields.io/badge/GitHub-@laxmanreddy97-181717?style=flat-square&logo=github)](https://github.com/laxmanreddy97)
 [![Email](https://img.shields.io/badge/Email-anugu23@iisertvm.ac.in-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:anugu23@iisertvm.ac.in)
@@ -428,7 +426,7 @@ The app will open at `http://localhost:7860` in your browser.
 
 ---
 
-##  License
+## 📜 License
 
 This project is submitted as academic coursework.  
 Code is released under the [MIT License](LICENSE) for reference and educational purposes.
@@ -437,8 +435,8 @@ Code is released under the [MIT License](LICENSE) for reference and educational 
 
 <div align="center">
 
-**If you found this project useful, consider starring the repository.**
+**If you found this project useful, consider starring the repository ⭐**
 
-*Project | Data Warehouse + Machine Learning + Interactive Analytics*
+*Data Warehouse + Machine Learning + Interactive Analytics*
 
 </div>
