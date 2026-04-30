@@ -384,7 +384,7 @@ The app will open at `http://localhost:7860` in your browser.
 
 | Notebook | Description | Open in Colab |
 |:---|:---|:---:|
-| `part2_ml_analysis.ipynb` | Full Part 2 — EDA, ML, Clustering, Forecasting, ARM, Gradio UI | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/laxmanreddy97/conflict-fuel-price-analysis/blob/main/notebooks/opwar.ipynb) |
+| `part2_ml_analysis.ipynb` | Full Part 2 — EDA, ML, Clustering, Forecasting, ARM, Gradio UI | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/laxmanreddy97/conflict-fuel-price-analysis/blob/main/opwar.ipynb) |
 
 > Replace `YOUR_USERNAME` in the Colab badge link with your actual GitHub username.
 
