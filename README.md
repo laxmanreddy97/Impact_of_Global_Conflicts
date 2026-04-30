@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1000&color=E05A1A&center=true&vCenter=true&width=700&lines=Impact+of+Global+Conflicts;on+Fuel+Prices+%26+Economic+Indicators" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1000&color=E05A1A&center=true&vCenter=true&width=700&lines=Impact+of+Global+Conflicts;on+Fuel+Prices+%26+Economics;Data+Warehouse+%26+ML+Insights" alt="typing-svg" />
 
 <br/>
 
@@ -18,7 +18,7 @@
 
 <br/>
 
-[ View Notebook](#-project-notebooks) • [ GradioUI](#-how-to-run-the-gradio-ui) • [ Project Structure](#-project-structure) • [ Key Results](#-key-results)
+[View Notebook](#-project-notebooks) • [Gradio UI](#-how-to-run-the-gradio-ui) • [Project Structure](#-project-structure) • [Key Results](#-key-results)
 
 </div>
 
@@ -384,7 +384,8 @@ The app will open at `http://localhost:7860` in your browser.
 
 | Notebook | Description | Open in Colab |
 |:---|:---|:---:|
-| `part2_ml_analysis.ipynb` | Full Part 2 — EDA, ML, Clustering, Forecasting, ARM, Gradio UI | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/laxmanreddy97/Impact_of_Global_Conflicts/blob/main/opwar.ipynb) |
+| `part1_oltp_dw_olap.ipynb` | OLTP schema, DW design, 6 OLAP queries | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/laxmanreddy97/Impact_of_Global_Conflicts/blob/main/notebooks/part1_oltp_dw_olap.ipynb) |
+| `part2_ml_analysis.ipynb` | Full Part 2 — EDA, ML, Clustering, Forecasting, ARM, Gradio UI | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/laxmanreddy97/Impact_of_Global_Conflicts/blob/main/notebooks/part2_ml_analysis.ipynb) |
 
 > Replace `YOUR_USERNAME` in the Colab badge link with your actual GitHub username.
 
@@ -398,16 +399,16 @@ The app will open at `http://localhost:7860` in your browser.
     <td align="center"><b>Model Comparison</b></td>
   </tr>
   <tr>
-    <td><img src="Outputs/plots/eda_correlation_heatmap.png" width="340"/></td>
-    <td><img src="Outputs/plots/plot_model_comparison.png" width="340"/></td>
+    <td><img src="outputs/eda_correlation_heatmap.png" width="340"/></td>
+    <td><img src="outputs/plot_model_comparison.png" width="340"/></td>
   </tr>
   <tr>
     <td align="center"><b>Country Clusters (PCA)</b></td>
     <td align="center"><b>24-Month Oil Forecast</b></td>
   </tr>
   <tr>
-    <td><img src="Outputs/plots/plot_clustering.png" width="340"/></td>
-    <td><img src="Outputs/plots/plot_forecast.png" width="340"/></td>
+    <td><img src="outputs/plot_clustering.png" width="340"/></td>
+    <td><img src="outputs/plot_forecast.png" width="340"/></td>
   </tr>
 </table>
 
@@ -421,7 +422,7 @@ The app will open at `http://localhost:7860` in your browser.
 *Bsms Data Science — [IISER TVM]*  
 
 [![GitHub](https://img.shields.io/badge/GitHub-@laxmanreddy97-181717?style=flat-square&logo=github)](https://github.com/laxmanreddy97)
-[![Email](https://img.shields.io/badge/Email-anugu23@iisertvm.ac.in-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:your.email@university.edu)
+[![Email](https://img.shields.io/badge/Email-anugu23@iisertvm.ac.in-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:anugu23@iisertvm.ac.in)
 
 </div>
 
@@ -436,7 +437,7 @@ Code is released under the [MIT License](LICENSE) for reference and educational 
 
 <div align="center">
 
-** If you found this project useful, consider starring the repository.**
+**If you found this project useful, consider starring the repository.**
 
 *Project | Data Warehouse + Machine Learning + Interactive Analytics*
 
