@@ -42,7 +42,7 @@
 
 ---
 
-## 🔍 Problem Statement
+##Problem Statement
 
 Global armed conflicts are among the most disruptive forces in commodity markets.  
 This project investigates a central research question:
@@ -69,7 +69,7 @@ Governments, hedge funds, and supply-chain teams need tools to **anticipate** th
 
 ---
 
-## 🏗️ Project Architecture
+##Project Architecture
 
 ```
 Raw Data (5 CSVs)
