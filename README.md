@@ -18,7 +18,7 @@
 
 <br/>
 
-[View Notebook](#-project-notebooks) • [Gradio UI](#-how-to-run-the-gradio-ui) • [Project Structure](#-project-structure) • [Key Results](#-key-results)
+[ view Notebook](#-project-notebooks) • [ Gradio UI](#-how-to-run-the-gradio-ui) • [ Project Structure](#-project-structure) • [ Key Results](#-key-results)
 
 </div>
 
