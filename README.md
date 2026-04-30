@@ -359,7 +359,7 @@ The app will open at `http://localhost:7860` in your browser.
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 <div align="center">
 
@@ -389,7 +389,7 @@ The app will open at `http://localhost:7860` in your browser.
 
 ---
 
-## 📸 Sample Outputs
+##  Sample Outputs
 
 <table>
   <tr>
