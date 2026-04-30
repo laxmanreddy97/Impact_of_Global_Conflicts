@@ -384,8 +384,8 @@ The app will open at `http://localhost:7860` in your browser.
 
 | Notebook | Description | Open in Colab |
 |:---|:---|:---:|
-| `part1_oltp_dw_olap.ipynb` | OLTP schema, DW design, 6 OLAP queries | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/laxmanreddy97/Impact_of_Global_Conflicts/blob/main/notebooks/part1_oltp_dw_olap.ipynb) |
-| `part2_ml_analysis.ipynb` | Full Part 2 — EDA, ML, Clustering, Forecasting, ARM, Gradio UI | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/laxmanreddy97/Impact_of_Global_Conflicts/blob/main/notebooks/part2_ml_analysis.ipynb) |
+| `part1_oltp_dw_olap.ipynb` | OLTP schema, DW design, 6 OLAP queries | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/laxmanreddy97/Impact_of_Global_Conflicts/blob/main/opwar.ipynb) |
+| `part2_ml_analysis.ipynb` | Full Part 2 — EDA, ML, Clustering, Forecasting, ARM, Gradio UI | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/laxmanreddy97/Impact_of_Global_Conflicts/blob/main/opwar(4).ipynb) |
 
 ---
 
@@ -397,16 +397,16 @@ The app will open at `http://localhost:7860` in your browser.
     <td align="center"><b>Model Comparison</b></td>
   </tr>
   <tr>
-    <td><img src="outputs/eda_correlation_heatmap.png" width="340"/></td>
-    <td><img src="outputs/plot_model_comparison.png" width="340"/></td>
+    <td><img src="Outputs/plots/eda_correlation_heatmap.png" width="340"/></td>
+    <td><img src="Outputs/plots/plot_model_comparison.png" width="340"/></td>
   </tr>
   <tr>
     <td align="center"><b>Country Clusters (PCA)</b></td>
     <td align="center"><b>24-Month Oil Forecast</b></td>
   </tr>
   <tr>
-    <td><img src="outputs/plot_clustering.png" width="340"/></td>
-    <td><img src="outputs/plot_forecast.png" width="340"/></td>
+    <td><img src="Outputs/plots/plot_clustering.png" width="340"/></td>
+    <td><img src="Outputs/plots/plot_forecast.png" width="340"/></td>
   </tr>
 </table>
 
