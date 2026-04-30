@@ -1,0 +1,51 @@
+Company_ID,Company_name,Revenue_millionUSD,Revenue_Growth_%,Net_Profit_Margin_%,Debt_to_Equity,Current_Ratio,Years_in_Operation,CAGR_5Y_%,Employee_Count,Market_Footprint_Countries,Production_Capacity_MW,Governance_Score,Litigation_Flag,Energy_Subsector,Region,Country_Risk_Index
+C001,Saudi Aramco,495350,13.04,21.45,0.08,1.15,91,18.21,75000,14,12400000,2,1,Oil & Gas,Middle East,45
+C002,PetroChina,411032,-4.65,5.61,0.38,0.93,25,4.98,370799,8,4874000,1,1,Oil & Gas,Asia,60
+C003,Sinopec,444740,-1.78,1.13,0.48,0.99,24,2.95,60162,20,5150000,2,1,Oil & Gas,Asia,60
+C004,Exxon Mobil Corp.,339247,1.36,9.93,0.14,1.25,142,5.89,61000,70,4300000,2,1,Oil & Gas,North America,10
+C005,Shell plc,284312,-10.2,5.82,0.43,1.28,117,0.95,98000,90,2800000,4,1,Oil & Gas,Europe,20
+C006,TotalEnergies SE,187110,-11.02,8.42,0.42,1.21,100,1.11,102887,120,2434000,6,1,Oil & Gas,Europe,20
+C007,Chevron Corp.,193414,-1.78,9.13,0.16,1.1,145,6.87,45298,180,3300000,4,1,Oil & Gas,North America,10
+C008,BP p.l.c.,189185,1.45,0.2,0.65,1.05,115,-5.73,100500,61,2400000,4,1,Oil & Gas,Europe,20
+C009,Gazprom,125882.35,25,11.5,0.58,0.85,35,-1.85,492200,20,9835616,1,1,Oil & Gas,Europe,90
+C010,ConocoPhillips,54745,-5.21,16.89,0.38,1.29,22,12.33,11800,15,1987000,5,1,Oil & Gas,North America,10
+C011,Equinor ASA,106460,-28.91,7.23,0.51,1.33,52,18.54,23450,30,2080000,5,0,Oil & Gas,Europe,10
+C012,Eni S.p.A.,93980,-30.05,5.11,0.6,1.1,71,10.21,33142,62,1660000,6,1,Oil & Gas,Europe,45
+C013,Petrobras,86290,-23.18,28.1,0.64,1.01,71,1.76,46730,15,2700000,3,1,Oil & Gas,South America,60
+C014,Marathon Petroleum,133560,-11.97,6.03,0.69,1.02,13,5.23,18200,1,2900000,5,0,Oil & Gas,North America,10
+C015,Phillips 66,132960,-15.42,3.32,0.59,1.18,12,2.59,14000,5,2200000,5,0,Oil & Gas,North America,10
+C016,Valero Energy,123770,-15.01,5.72,0.61,1.15,44,5.61,9743,3,3200000,6,0,Oil & Gas,North America,10
+C017,Repsol,75090,-25.59,4.14,0.75,1.08,37,8.99,23694,28,650000,6,0,Oil & Gas,Europe,40
+C018,ENEOS Holdings,94600,-14.22,1.54,1.2,1.12,138,4.88,34500,10,1900000,6,0,Oil & Gas,Asia,20
+C019,Indian Oil,88360,-12.87,2.11,1.35,0.89,65,7.55,31095,8,1600000,3,0,Oil & Gas,Asia,70
+C020,CNOOC,59180,-4.12,21.9,0.3,1.55,42,15.2,20737,20,1800000,3,0,Oil & Gas,Asia,60
+C021,Occidental Petroleum,27150,-15.89,12.93,1.05,1.11,104,2.91,12571,16,1234000,5,0,Oil & Gas,North America,10
+C022,Enbridge,46090,-18.75,12.5,1.25,0.65,75,1.98,11100,2,3000000,7,0,Distribution,North America,10
+C023,Ecopetrol,30910,-18.99,14.88,0.98,1.03,73,14.87,19687,9,736000,4,0,Oil & Gas,South America,70
+C024,Cenovus Energy,40040,-16.58,10.5,0.65,1.55,15,28.11,6779,3,775000,6,0,Oil & Gas,North America,10
+C025,Suncor Energy,38420,-12.01,15.62,0.55,1.3,105,4.15,16965,2,750000,6,0,Oil & Gas,North America,10
+C026,NextEra Energy,25850,23.99,26.87,1.52,0.68,99,7.85,15300,2,75000,8,0,Power Generation,North America,10
+C027,Duke Energy,30040,-3.93,13.98,1.45,0.72,120,3.55,27833,1,57700,7,0,Power Generation,North America,10
+C028,Southern Company,26130,-7.88,16.8,1.85,0.65,112,2.11,27900,1,47000,7,0,Power Generation,North America,10
+C029,Iberdrola,49360,-8.54,11.37,1.1,0.88,123,5.99,42208,40,62045,9,0,Power Generation,Europe,40
+C030,Enel,86680,-42.85,3.17,2.5,0.75,62,4.12,61179,30,89000,8,0,Power Generation,Europe,45
+C031,E.ON,74470,-31.25,1.05,1.75,1.1,24,-1.55,72242,15,55000,8,0,Distribution,Europe,20
+C032,National Grid,69550,15.22,5.25,1.9,0.6,34,10.88,31425,2,10800,7,0,Distribution,Europe,20
+C033,American Electric Power,19721.3,3.89,15.05,1.6,0.7,118,2.87,17250,1,26000,7,0,Power Generation,North America,10
+C034,Exelon Corporation,21727,11.89,11.85,1.3,0.95,24,-12.5,18331,1,31000,8,0,Power Generation,North America,10
+C035,Engie,73800,-10.6,5.56,1.2,1,177,-2.15,97307,31,101000,8,0,Power Generation,Europe,20
+C036,NTPC Limited,21500,1.5,10.1,1.55,0.8,49,10.5,20839,1,73824,6,0,Power Generation,Asia,70
+C037,Constellation Energy,24900,1.5,10.5,0.8,1.1,114,1.8,14000,1,32400,8,0,Power Generation,North America,10
+C038,Vistra,14500,5.2,8.9,1.15,1.2,8,3.5,4900,1,41000,7,0,Power Generation,North America,10
+C039,PSEG,12100,2.1,12.3,1.4,0.85,121,1.5,12933,1,13000,7,0,Power Generation,North America,10
+C040,RWE,30160,-35.2,5.5,0.45,1.35,126,3.9,19137,15,45000,8,0,Power Generation,Europe,20
+C041,GE Vernova,33900,2.5,-3.5,0.9,1.15,132,1.2,80000,50,82000,8,0,Renewables,North America,10
+C042,First Solar,4500,35.1,18.2,0.1,3.5,25,15.8,7300,10,16000,9,0,Renewables,North America,10
+C043,Vestas Wind Systems,16500,5.8,-1.2,0.5,1.1,79,2.1,29000,80,177000,9,0,Renewables,Europe,10
+C044,Sungrow Power Supply,10200,75.2,12.5,0.7,1.4,27,45.1,9000,150,150000,8,0,Renewables,Asia,60
+C045,Adani Green Energy,1100,40.5,10.8,3.5,0.6,9,55.2,3324,1,10934,5,1,Renewables,Asia,70
+C046,Brookfield Renewable,5200,10.2,-2.5,1.8,0.9,25,12.3,4600,20,33000,9,0,Renewables,North America,10
+C047,Ormat Technologies,850,12.1,15.1,0.85,1.5,59,8.2,1500,30,1400,8,0,Renewables,North America,10
+C048,SolarEdge,2040,-34.5,-8.5,0.4,2.8,18,30.5,5633,133,25000,7,0,Renewables,Asia,45
+C049,Plug Power,650,-25.8,-210,0.6,2.1,27,65.8,3868,15,1000,6,0,Renewables,North America,10
+C050,OMV AG,32100,-45.1,4.5,0.4,1.2,68,3.8,21000,30,350000,7,0,Oil & Gas,Europe,20
