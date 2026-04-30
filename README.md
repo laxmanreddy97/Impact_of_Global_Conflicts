@@ -1,3 +1,15 @@
+---
+title: Impact of Global Conflicts
+emoji: 🌍
+colorFrom: blue
+colorTo: green
+sdk: gradio
+sdk_version: "4.0.0"
+python_version: "3.12"
+app_file: app.py
+pinned: false
+---
+
 <div align="center">
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1000&color=E05A1A&center=true&vCenter=true&width=700&lines=Impact+of+Global+Conflicts;on+Fuel+Prices+%26+Economics" alt="Project Title" />

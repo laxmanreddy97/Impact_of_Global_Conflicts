@@ -96,15 +96,33 @@ def load_and_preprocess_data():
     fuel_clean['Month'] = fuel_clean['Date'].dt.month
     
     # ── Aggregate conflicts to yearly level ──
-    conflicts_yearly = conflicts_clean.groupby('Year').agg({
+    # Build agg dict dynamically based on available columns
+    agg_dict = {
         'Economic_Loss_USD_Billions': 'sum',
         'Civilian_Deaths': 'sum',
-        'Military_Deaths': lambda x: x.sum() if 'Military_Deaths' in conflicts.columns else 0,
         'Duration_Days': 'mean',
         'Refugees_Millions': 'sum',
         'Country_A': 'count'  # conflict count
-    }).reset_index()
-    conflicts_yearly.columns = ['Year', 'Economic_Loss', 'Civilian_Deaths', 'Military_Deaths', 'Duration_Days', 'Refugees', 'Conflict_Count']
+    }
+    
+    # Add Military Deaths if available (combine A and B if separate)
+    if 'Military_Deaths' in conflicts_clean.columns:
+        agg_dict['Military_Deaths'] = 'sum'
+    elif 'Military_Deaths_A' in conflicts_clean.columns and 'Military_Deaths_B' in conflicts_clean.columns:
+        # We'll calculate total military deaths from both sides after groupby
+        agg_dict['Military_Deaths_A'] = 'sum'
+        agg_dict['Military_Deaths_B'] = 'sum'
+    
+    conflicts_yearly = conflicts_clean.groupby('Year').agg(agg_dict).reset_index()
+    
+    # Combine military deaths if they were separate columns
+    if 'Military_Deaths_A' in conflicts_yearly.columns:
+        conflicts_yearly['Military_Deaths'] = conflicts_yearly['Military_Deaths_A'] + conflicts_yearly['Military_Deaths_B']
+        conflicts_yearly = conflicts_yearly.drop(['Military_Deaths_A', 'Military_Deaths_B'], axis=1)
+    
+    # Ensure consistent column order
+    conflicts_yearly.columns = ['Year', 'Economic_Loss', 'Civilian_Deaths', 'Duration_Days', 'Refugees', 'Conflict_Count', 'Military_Deaths']
+    conflicts_yearly = conflicts_yearly[['Year', 'Economic_Loss', 'Civilian_Deaths', 'Military_Deaths', 'Duration_Days', 'Refugees', 'Conflict_Count']]
     
     # ── Aggregate fuel to yearly level ──
     fuel_yearly = fuel_clean.groupby('Year')['Crude_Oil_Price'].mean().reset_index()
@@ -241,12 +259,23 @@ def train_time_series_forecast(fuel_clean):
 def fig_to_pil(fig):
     """Convert matplotlib figure to PIL Image."""
     buf = io.BytesIO()
-    fig.savefig(buf, format='png', dpi=130, bbox_inches='tight')
+    fig.savefig(buf, format='png', dpi=100, bbox_inches='tight')
     buf.seek(0)
     img = Image.open(buf).copy()
     buf.close()
     plt.close(fig)
-    return img
+    # Convert to numpy array for better Gradio 4.0.0 compatibility
+    return np.array(img)
+
+
+def make_error_image(error_msg):
+    """Create an error visualization image."""
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.text(0.5, 0.5, f'Error:\n{error_msg}', ha='center', va='center', 
+            fontsize=12, color='red', wrap=True, bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
+    ax.axis('off')
+    plt.tight_layout()
+    return fig_to_pil(fig)
 
 
 def make_gauge(predicted, lo=10, hi=160):
@@ -319,78 +348,109 @@ def plot_clustering(X_pca, clusters, centroids_pca):
 # SECTION 4: GRADIO INTERFACE TABS & CALLBACKS
 # ═══════════════════════════════════════════════════════════════════
 
-def predict_oil_price(economic_loss, civilian_deaths, duration_days, refugees, conflict_count):
-    """Predict oil price given conflict features."""
-    
-    # Prepare feature vector
-    input_data = np.array([economic_loss, civilian_deaths, duration_days, refugees, conflict_count]).reshape(1, -1)
-    
-    # Standardize using the trained scaler
-    input_scaled = scaler.transform(input_data)
-    
-    # Use best model for prediction
-    best_name = max(results, key=lambda k: results[k]['r2'])
-    predicted_price = results[best_name]['model'].predict(input_scaled)[0]
-    predicted_price = max(10, min(160, predicted_price))  # Clamp to reasonable range
-    
-    gauge = make_gauge(predicted_price)
-    
-    summary = f"""
-    **Best Model:** {best_name} (R²={results[best_name]['r2']:.4f})
-    
-    **Predicted Oil Price:** ${predicted_price:.2f}/barrel
-    
-    **Input Features:**
-    - Economic Loss: ${economic_loss:.1f}B
-    - Civilian Deaths: {int(civilian_deaths):,}
-    - Conflict Duration: {int(duration_days)} days
-    - Refugees: {refugees:.1f}M
-    - Conflict Count: {int(conflict_count)}
-    """
-    
-    model_comp = plot_model_comparison(results)
-    
-    return gauge, summary, model_comp
+def predict_oil_price(economic_loss, civilian_deaths, military_deaths, duration_days, refugees, conflict_count, gdp_mean, inflation_mean):
+    """Predict oil price given conflict features and economic indicators."""
+    try:
+        # Prepare feature vector - must match training features order
+        input_data = np.array([economic_loss, civilian_deaths, military_deaths, duration_days, refugees, conflict_count, gdp_mean, inflation_mean]).reshape(1, -1)
+        
+        # Standardize using the trained scaler
+        input_scaled = scaler.transform(input_data)
+        
+        # Use best model for prediction
+        best_name = max(results, key=lambda k: results[k]['r2'])
+        predicted_price = results[best_name]['model'].predict(input_scaled)[0]
+        predicted_price = max(10, min(160, predicted_price))  # Clamp to reasonable range
+        
+        gauge = make_gauge(predicted_price)
+        
+        summary = f"""
+        **Best Model:** {best_name} (R²={results[best_name]['r2']:.4f})
+        
+        **Predicted Oil Price:** ${predicted_price:.2f}/barrel
+        
+        **Conflict Features:**
+        - Economic Loss: ${economic_loss:.1f}B
+        - Civilian Deaths: {int(civilian_deaths):,}
+        - Military Deaths: {int(military_deaths):,}
+        - Conflict Duration: {int(duration_days)} days
+        - Refugees: {refugees:.1f}M
+        - Conflict Count: {int(conflict_count)}
+        
+        **Economic Indicators:**
+        - Global GDP (avg): ${gdp_mean:.1f}B
+        - Inflation (avg): {inflation_mean:.2f}%
+        """
+        
+        model_comp = plot_model_comparison(results)
+        
+        return gauge, summary, model_comp
+    except Exception as e:
+        print(f"Error in predict_oil_price: {e}")
+        import traceback
+        traceback.print_exc()
+        error_img = make_error_image(str(e)[:100])
+        return error_img, f"**Error:** {str(e)}", make_error_image(str(e)[:100])
 
 
 def show_clustering_plot():
     """Return the clustering visualization."""
-    centroids_pca = pca.transform(kmeans.cluster_centers_)
-    return plot_clustering(X_pca, clusters, centroids_pca)
+    try:
+        centroids_pca = pca.transform(kmeans.cluster_centers_)
+        return plot_clustering(X_pca, clusters, centroids_pca)
+    except Exception as e:
+        print(f"Error in show_clustering_plot: {e}")
+        return make_error_image(str(e)[:100])
 
 
 def show_model_comparison():
     """Return model comparison plot."""
-    return plot_model_comparison(results)
+    try:
+        return plot_model_comparison(results)
+    except Exception as e:
+        print(f"Error in show_model_comparison: {e}")
+        return make_error_image(str(e)[:100])
 
 
 def show_forecast():
     """Generate time-series forecast plot."""
-    if hw_fitted is None:
-        fig, ax = plt.subplots()
-        ax.text(0.5, 0.5, 'Forecast model not available (insufficient data)', ha='center', va='center')
+    try:
+        fig, ax = plt.subplots(figsize=(12, 5))
+        
+        if hw_fitted is None:
+            ax.text(0.5, 0.5, 'Forecast model not available', ha='center', va='center')
+            plt.tight_layout()
+            return fig_to_pil(fig)
+        
+        # Historical
+        ax.plot(fuel_ts.index, fuel_ts.values, label='Historical', color='#3498db', linewidth=2)
+        
+        # Forecast using correct method
+        try:
+            # Try get_forecast (newer statsmodels)
+            forecast = hw_fitted.get_forecast(steps=24)
+            forecast_index = pd.date_range(fuel_ts.index[-1], periods=25, freq='MS')[1:]
+            ax.plot(forecast_index, forecast.mean_ci.iloc[:, 0], label='Forecast', color='#e74c3c', linewidth=2)
+            ax.fill_between(forecast_index, forecast.conf_int()[:, 0], forecast.conf_int()[:, 1], alpha=0.2, color='#e74c3c')
+        except (AttributeError, TypeError):
+            # Fallback to forecast method
+            forecast_values = hw_fitted.forecast(steps=24)
+            forecast_index = pd.date_range(fuel_ts.index[-1], periods=25, freq='MS')[1:]
+            ax.plot(forecast_index, forecast_values, label='Forecast', color='#e74c3c', linewidth=2, linestyle='--')
+        
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Crude Oil Price ($/barrel)')
+        ax.set_title('24-Month Oil Price Forecast (Holt-Winters)')
+        ax.legend()
+        ax.grid(True, alpha=0.3)
+        
+        plt.tight_layout()
         return fig_to_pil(fig)
-    
-    fig, ax = plt.subplots(figsize=(12, 5))
-    
-    # Historical
-    ax.plot(fuel_ts.index, fuel_ts.values, label='Historical', color='#3498db', linewidth=2)
-    
-    # Forecast
-    forecast = hw_fitted.get_forecast(steps=24)
-    forecast_index = pd.date_range(fuel_ts.index[-1], periods=25, freq='MS')[1:]
-    ax.plot(forecast_index, forecast.mean_ci.iloc[:, 0], label='Forecast', color='#e74c3c', linewidth=2)
-    ax.fill_between(forecast_index, forecast.conf_int()[:, 0], forecast.conf_int()[:, 1], alpha=0.2, color='#e74c3c')
-    
-    ax.set_xlabel('Date')
-    ax.set_ylabel('Crude Oil Price ($/barrel)')
-    ax.set_title('24-Month Oil Price Forecast (Holt-Winters)')
-    ax.legend()
-    ax.grid(True, alpha=0.3)
-    
-    plt.tight_layout()
-    return fig_to_pil(fig)
-
+    except Exception as e:
+        print(f"Error in show_forecast: {e}")
+        import traceback
+        traceback.print_exc()
+        return make_error_image(str(e)[:100])
 
 # ═══════════════════════════════════════════════════════════════════
 # MAIN EXECUTION
@@ -420,6 +480,30 @@ if __name__ == "__main__":
     best_r2 = results[best_name]['r2']
     best_rmse = results[best_name]['rmse']
     
+    # ─────────── PRE-GENERATE VISUALIZATIONS ──────────
+    print("\n📊 Generating visualizations...")
+    
+    try:
+        cluster_vis = show_clustering_plot()
+        print("  ✅ Cluster visualization generated")
+    except Exception as e:
+        print(f"  ⚠️  Cluster visualization failed: {e}")
+        cluster_vis = make_error_image(str(e))
+    
+    try:
+        forecast_vis = show_forecast()
+        print("  ✅ Forecast visualization generated")
+    except Exception as e:
+        print(f"  ⚠️  Forecast visualization failed: {e}")
+        forecast_vis = make_error_image(str(e))
+    
+    try:
+        model_comp_vis = show_model_comparison()
+        print("  ✅ Model comparison visualization generated")
+    except Exception as e:
+        print(f"  ⚠️  Model comparison visualization failed: {e}")
+        model_comp_vis = make_error_image(str(e))
+    
     # ─────────── BUILD GRADIO INTERFACE ──────────
     with gr.Blocks(title="Conflict-Fuel Price Analytics", theme=gr.themes.Soft()) as demo:
         
@@ -435,55 +519,57 @@ if __name__ == "__main__":
         with gr.Tabs():
             # ── TAB 1: PREDICT ──
             with gr.Tab("🔮 Predict"):
-                gr.HTML("<h2>Predict Oil Price from Conflict Features</h2>")
+                gr.HTML("<h2>Predict Oil Price from Conflict Features & Economic Indicators</h2>")
                 
+                gr.HTML("<h3>Conflict Features</h3>")
                 with gr.Row():
                     economic_loss = gr.Slider(0, 100, value=10, label="Economic Loss ($ Billions)")
                     civilian_deaths = gr.Slider(0, 100000, value=5000, label="Civilian Deaths", step=100)
                 
                 with gr.Row():
+                    military_deaths = gr.Slider(0, 100000, value=3000, label="Military Deaths", step=100)
                     duration_days = gr.Slider(1, 5000, value=500, label="Conflict Duration (days)", step=10)
-                    refugees = gr.Slider(0, 10, value=1, label="Refugees (Millions)", step=0.1)
                 
-                conflict_count = gr.Slider(1, 50, value=5, label="Number of Concurrent Conflicts", step=1)
+                with gr.Row():
+                    refugees = gr.Slider(0, 10, value=1, label="Refugees (Millions)", step=0.1)
+                    conflict_count = gr.Slider(1, 50, value=5, label="Number of Concurrent Conflicts", step=1)
+                
+                gr.HTML("<h3>Economic Indicators</h3>")
+                with gr.Row():
+                    gdp_mean = gr.Slider(1000, 100000, value=20000, label="Global GDP (avg, $ Billions)", step=500)
+                    inflation_mean = gr.Slider(0, 20, value=5, label="Inflation (avg, %)", step=0.5)
                 
                 predict_btn = gr.Button("🚀 Predict", scale=2)
                 
                 with gr.Row():
                     gauge_output = gr.Image(label="Price Gauge", scale=1)
-                    summary_output = gr.Markdown(label="Summary", scale=1)
+                    summary_output = gr.Markdown(label="Summary")
                 
                 model_comp_output = gr.Image(label="Model Comparison", scale=2)
                 
                 predict_btn.click(
                     fn=predict_oil_price,
-                    inputs=[economic_loss, civilian_deaths, duration_days, refugees, conflict_count],
+                    inputs=[economic_loss, civilian_deaths, military_deaths, duration_days, refugees, conflict_count, gdp_mean, inflation_mean],
                     outputs=[gauge_output, summary_output, model_comp_output]
                 )
             
             # ── TAB 2: CLUSTER ──
             with gr.Tab("📊 Cluster"):
                 gr.HTML("<h2>Country-Year Conflict Clusters (K-means, k=3)</h2>")
-                cluster_btn = gr.Button("📈 Show Clusters", scale=2)
-                cluster_plot = gr.Image(label="Clustering Visualization")
-                
-                cluster_btn.click(fn=show_clustering_plot, outputs=cluster_plot)
+                gr.HTML("<p>Visualization showing how conflict years cluster into 3 groups based on multi-dimensional conflict features.</p>")
+                gr.Image(value=cluster_vis, label="Clustering Visualization")
             
             # ── TAB 3: FORECAST ──
             with gr.Tab("📉 Forecast"):
                 gr.HTML("<h2>24-Month Oil Price Forecast (Holt-Winters)</h2>")
-                forecast_btn = gr.Button("📊 Generate Forecast", scale=2)
-                forecast_plot = gr.Image(label="Forecast Chart")
-                
-                forecast_btn.click(fn=show_forecast, outputs=forecast_plot)
+                gr.HTML("<p>Exponential smoothing forecast of crude oil prices with 95% confidence interval.</p>")
+                gr.Image(value=forecast_vis, label="Forecast Chart")
             
             # ── TAB 4: COMPARE MODELS ──
             with gr.Tab("🤖 Models"):
                 gr.HTML("<h2>Model Performance Comparison</h2>")
-                comp_btn = gr.Button("📊 Compare Models", scale=2)
-                comp_plot = gr.Image(label="Performance Metrics")
-                
-                comp_btn.click(fn=show_model_comparison, outputs=comp_plot)
+                gr.HTML("<p>Comparison of R² scores and RMSE across 4 ML models.</p>")
+                gr.Image(value=model_comp_vis, label="Performance Metrics")
             
             # ── TAB 5: INFO ──
             with gr.Tab("ℹ️ Info"):
