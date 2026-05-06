@@ -1,5 +1,3 @@
-
-
 <div align="center">
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1000&color=E05A1A&center=true&vCenter=true&width=700&lines=Impact+of+Global+Conflicts;on+Fuel+Prices+%26+Economics" alt="Project Title" />
@@ -12,6 +10,7 @@
 [![SQLite](https://img.shields.io/badge/SQLite-Data_Warehouse-003B57?style=flat-square&logo=sqlite&logoColor=white)](https://sqlite.org/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-ML_Models-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+[![🤗 Live Demo](https://img.shields.io/badge/🤗%20HuggingFace-Live%20Demo-orange?style=flat-square)](https://huggingface.co/spaces/laxman97/impact-of-global-conflicts)
 
 <br/>
 
@@ -20,7 +19,13 @@
 
 <br/>
 
-[📓 View Notebook](#-project-notebooks) • [🎨 Gradio UI](#-how-to-run-the-gradio-ui) • [📁 Project Structure](#-project-structure) • [🎯 Key Results](#-key-results)
+[📓 View Notebook](#-project-notebooks) • [🎨 Gradio UI — **Live Demo ↗**](https://huggingface.co/spaces/laxman97/impact-of-global-conflicts) • [📁 Project Structure](#-project-structure) • [🎯 Key Results](#-key-results)
+
+<br/>
+
+> 🚀 **The full interactive dashboard is deployed and live — no installation needed.**  
+> Explore oil price predictions, country clusters, geopolitical forecasts and more directly in your browser:  
+> 👉 **[huggingface.co/spaces/laxman97/impact-of-global-conflicts](https://huggingface.co/spaces/laxman97/impact-of-global-conflicts)**
 
 </div>
 
